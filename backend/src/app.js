@@ -5,9 +5,12 @@
 
 const express = require("express")
 const noteModel = require("./models/note.model")
+const cors = require("cors")
 
 const app = express()
 app.use(express.json())
+app.use(cors())
+
 
 
 /**
@@ -23,7 +26,7 @@ app.post('/api/notes', async (req, res) => {
         title, description
     })
 
-    res.staus(201).json({
+    res.status(201).json({
         message: "Note created successfully.",
         note: note
     })
